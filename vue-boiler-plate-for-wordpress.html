@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Boiler Plate for WordPress</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
+</head>
+<body>
+    <div id="sample">
+        <h1>
+            {{message}}
+        </h1>
+        <button type="button" @click="clickMe">Click Me</button>
+    </div>
+    <script type="module">
+        let app = Vue.createApp({
+            data() {
+                return {
+                    message: 'Hello Vue'
+                }
+            },
+            methods: {
+                clickMe() {
+                    alert("test1");
+                    axios.get('https://test.com').then((response) => {
+                        alert('Success');
+                    }).catch((error) => {
+                        alert('Error');
+                    });
+                }
+            }
+        });
+
+        app.mount("#sample");
+    </script>
+</body>
+</html>
